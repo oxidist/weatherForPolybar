@@ -1,7 +1,7 @@
 #!/usr/bin/python
 import pyowm
 
-api_key = 'd2e1cb17172b8247f4eac5f53b458e3c'
+api_key = 'your-API-key-here'
 owm = pyowm.OWM(api_key)
 
 # How to enter the argument city:
@@ -18,24 +18,23 @@ def get_weather_of_city(city, unit):
     temp_in_kelvin = weather.get_temperature()
     status = weather.get_status()
 
-    if unit is "C":
+    if unit is 'C':
         celsius = pyowm.utils.temputils.kelvin_to_celsius(temp_in_kelvin['temp'])
-        
-        if status is 'Clouds':
-            return ' {}, {} °C'.format(status, celsius)
-        if status is 'Clear':
-            return ' {}, {} °C'.format(status, celsius)
-        if status is 'Rains':
-            return ' {}, {} °C'.format(status, celsius)
+
+        if status == 'Clouds':
+            return ' {},{}°C'.format(status, celsius)
+        elif status == 'Clear':
+            return ' {},{}°C'.format(status, celsius)
+        elif status == 'Rains':
+            return ' {},{}°C'.format(status, celsius)
 
     if unit is "F":
         fahrenheit = pyowm.utils.temputils.kelvin_to_fahrenheit(temp_in_kelvin['temp'])
         if status is "Clouds":
             return " %s, %d°F" % (status, fahrenheit)
-        if status is "Clear":
+        elif status is "Clear":
             return " %s, %d°F" % (status, fahrenheit)
-        if status is "Rains":
+        elif status is "Rains":
             return " %s, %d°F" % (status, fahrenheit)
 
-#print(get_weather_of_city("Bhopal,IN", "C"))
-get_weather_of_city('Bhopal,', "C")
+print(get_weather_of_city("YOUR CITY HERE, YOUR TWO LETTER COUNTRY CODE HERE"))
