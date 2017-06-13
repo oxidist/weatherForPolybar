@@ -30,11 +30,11 @@ def get_weather_of_city(city, unit):
 
     if unit is "F":
         fahrenheit = pyowm.utils.temputils.kelvin_to_fahrenheit(temp_in_kelvin['temp'])
-        if status is "Clouds":
-            return " %s, %d°F" % (status, fahrenheit)
-        elif status is "Clear":
-            return " %s, %d°F" % (status, fahrenheit)
-        elif status is "Rains":
-            return " %s, %d°F" % (status, fahrenheit)
+        if status == 'Clouds':
+            return ' {},{}°F'.format(status, fahrenheit)
+        elif status == 'Clear':
+            return ' {},{}°F'.format(status, fahrenheit)
+        elif status == 'Rains':
+            return ' {},{}°F'.format(status, fahrenheit)
 
 print(get_weather_of_city("YOUR CITY HERE, YOUR TWO LETTER COUNTRY CODE HERE"))
