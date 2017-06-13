@@ -17,18 +17,16 @@ def get_weather_of_city(city, unit):
     weather = weather_in_city.get_weather()
     temp_in_kelvin = weather.get_temperature()
     status = weather.get_status()
-    print(status)
 
     if unit is "C":
         celsius = pyowm.utils.temputils.kelvin_to_celsius(temp_in_kelvin['temp'])
-        print(celsius)
-        if status is "Clouds":
-            # return " %s, %d°C" % (status, celsius)
-            print("%s, %d °C" % (status, celsius))
-        if status is "Clear":
-            return " %s, %d°C" % (status, celsius)
-        if status is "Rains":
-            return " %s, %d°C" % (status, celsius)
+        
+        if status is 'Clouds':
+            return ' {}, {} °C'.format(status, celsius)
+        if status is 'Clear':
+            return ' {}, {} °C'.format(status, celsius)
+        if status is 'Rains':
+            return ' {}, {} °C'.format(status, celsius)
 
     if unit is "F":
         fahrenheit = pyowm.utils.temputils.kelvin_to_fahrenheit(temp_in_kelvin['temp'])
