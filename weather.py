@@ -37,4 +37,4 @@ def get_weather_of_city(city, unit):
         elif status == 'Rains':
             return ' {},{}°F'.format(status, fahrenheit)
 
-print(get_weather_of_city("YOUR CITY HERE, YOUR TWO LETTER COUNTRY CODE HERE"))
+print(get_weather_of_city("YOUR CITY HERE, YOUR TWO LETTER COUNTRY CODE HERE", "YOUR UNIT HERE (C OR F)"))
