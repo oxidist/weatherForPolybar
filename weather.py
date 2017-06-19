@@ -8,7 +8,7 @@ class WeatherGetter(object):
     # How to enter the argument city:
     #   (your city),(your two letter country code)
     #   for example, the argument for London would be:
-    #   'London,uk'
+    #   'London,gb'
 
     # How to enter the argument unit:
     #   Enter a string, 'C' or 'F' for Celsius unit or Fahrenheit unit respectively.
