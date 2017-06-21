@@ -16,10 +16,10 @@ class WeatherGetter(object):
         self.city = city
         self.unit = unit
 
-    def get_weather_of_city(self, ):
+    def get_weather_of_city(self):
         weather_in_city = owm.weather_at_place(self.city)
         weather = weather_in_city.get_weather() # returns a Weather object, with
-        # temp, status, etc. (?)
+        # temp, status, etc.
         return weather
 
     def get_temp_of_city(self, weather):
