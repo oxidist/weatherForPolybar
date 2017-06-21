@@ -1,5 +1,5 @@
 #!/usr/bin/python
-import pyowm
+import pyowm # pip install pyowm
 
 api_key = 'your-API-key-here' # get api key from OWM after signing up
 owm = pyowm.OWM(api_key)
@@ -18,7 +18,8 @@ class WeatherGetter(object):
 
     def get_weather_of_city(self, ):
         weather_in_city = owm.weather_at_place(self.city)
-        weather = weather_in_city.get_weather() # returns a Weather object (?)
+        weather = weather_in_city.get_weather() # returns a Weather object, with
+        # temp, status, etc. (?)
         return weather
 
     def get_temp_of_city(self, weather):
