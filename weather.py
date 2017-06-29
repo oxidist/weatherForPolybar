@@ -1,5 +1,6 @@
 #!/usr/bin/python
-import pyowm # pip install pyowm
+import pyowm
+# pip install pyowm
 
 api_key = 'your-API-key-here' # get api key from OWM after signing up
 owm = pyowm.OWM(api_key)
@@ -33,19 +34,19 @@ class WeatherGetter(object):
         if self.unit is 'C':
             celsius = pyowm.utils.temputils.kelvin_to_celsius(temp_in_kelvin['temp'])
             if status == 'Clouds':
-                return ' {}, {}°C'.format(status, celsius)
+                return '{}, {}°C'.format(status, celsius)
             elif status == 'Clear':
-                return ' {}, {}°C'.format(status, celsius)
+                return '{}, {}°C'.format(status, celsius)
             elif (status == 'Rain') or (status == 'Thunderstorm') or (status == 'Drizzle'):
-                return ' {}, {}°C'.format(status, celsius)
+                return '{}, {}°C'.format(status, celsius)
         elif self.unit is "F":
             fahrenheit = pyowm.utils.temputils.kelvin_to_fahrenheit(temp_in_kelvin['temp'])
             if status == 'Clouds':
-                return ' {}, {}°F'.format(status, fahrenheit)
+                return '{}, {}°F'.format(status, fahrenheit)
             elif status == 'Clear':
-                return ' {}, {}°F'.format(status, fahrenheit)
+                return '{}, {}°F'.format(status, fahrenheit)
             elif status == 'Rains' or status is 'Thunderstorm':
-                return ' {}, {}°F'.format(status, fahrenheit)
+                return '{}, {}°F'.format(status, fahrenheit)
 
 reporter = WeatherGetter('YOUR CITY, YOUR 2-LETTER COUNTRY CODE','YOUR UNIT HERE')
 
