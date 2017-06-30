@@ -2,14 +2,18 @@
 import pyowm
 # pip install pyowm
 
-api_key = 'your-API-key-here' # get api key from OWM after signing up
-owm = pyowm.OWM(api_key)
+api_key = 'f7ac76b4d3a5c1151b2d8b20ecf8060d'
+api_key2 = '5b8db637ea3dde05d5d993d4008bc1f3'
+#use this key from me or
+# get api key from OWM after signing up
+owm = pyowm.OWM(api_key2)
 
 class WeatherGetter(object):
     # How to enter the argument city:
     #   (your city),(your two letter country code)
     #   for example, the argument for London would be:
     #   'London,gb'
+    #   'London,GB' wouldn't work
 
     # How to enter the argument unit:
     #   Enter a string, 'C' or 'F' for Celsius unit or Fahrenheit unit respectively.
@@ -30,29 +34,29 @@ class WeatherGetter(object):
     def get_status_of_city(self, weather):
         status = weather.get_status() # for eg. sunny, clouds, etc.
         return status
-    def output_the_weather(self, temp_in_kelvin, status):
+
+    def output_the_weather(self,city, temp_in_kelvin, status):
+        '''
+        status can be:
+        Clear,Rain,Clouds,Thunderstorm,Drizzle
+        '''
+
         if self.unit is 'C':
             celsius = pyowm.utils.temputils.kelvin_to_celsius(temp_in_kelvin['temp'])
-            if status == 'Clouds':
-                return '{}, {}'.format(status, celsius)
-            elif status == 'Clear':
-                return '{}, {}'.format(status, celsius)
-            elif (status == 'Rain') or (status == 'Thunderstorm') or (status == 'Drizzle'):
-                return '{}, {}'.format(status, celsius)
+            return '{}:{}:  {} degrees C'.format(city,status, celsius)
         elif self.unit is "F":
             fahrenheit = pyowm.utils.temputils.kelvin_to_fahrenheit(temp_in_kelvin['temp'])
-            if status == 'Clouds':
-                return '{}, {}'.format(status, fahrenheit)
-            elif status == 'Clear':
-                return '{}, {}'.format(status, fahrenheit)
-            elif status == 'Rains' or status is 'Thunderstorm':
-                return '{}, {}'.format(status, fahrenheit)
+            return '{}:{}:  {} degrees C'.format(city,status, fahrenheit)
 
-reporter = WeatherGetter('YOUR CITY, YOUR 2-LETTER COUNTRY CODE','YOUR UNIT HERE')
+reporter = WeatherGetter('Ratingen,de', 'C')
 
+#only api call here
 weather = reporter.get_weather_of_city()
 
+#these take stuff from the weather object
 status = reporter.get_status_of_city(weather)
 temp = reporter.get_temp_of_city(weather)
 
-print (reporter.output_the_weather(temp, status))
+#print(status)
+
+print (reporter.output_the_weather(reporter.city,temp, status))
