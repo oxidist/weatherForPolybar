@@ -11,3 +11,16 @@ cp launch.sh config ~/.config/polybar/
 polybar top
 
 //and you can see results. modify weather.py if you want to change the city
+
+
+commands you can run for fixing that polybar wont install on ubuntu
+
+apt policy polybar libstdc++6 libxcb-xrm0
+
+grep -r --include '*.list' '^deb' /etc/apt/sources.list*
+
+sudo sed -i 's/^.*yakkety/# &/' /etc/apt/sources.list.d/getdeb.list
+
+sudo apt update
+
+sudo apt-get install polybar
