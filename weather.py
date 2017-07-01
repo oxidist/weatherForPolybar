@@ -34,8 +34,10 @@ class WeatherGetter(object):
             celsius = pyowm.utils.temputils.kelvin_to_celsius(temp_in_kelvin['temp'])
             if status == 'Clouds':
                 return ' {}, {}°C'.format(status, celsius)
+                self.assertEqual(str(status), 'Clouds',)
             elif status == 'Clear':
                 return ' {}, {}°C'.format(status, celsius)
+                self.assertEqual(str(status), 'Clear',)
             elif (status == 'Rain') or (status == 'Thunderstorm') or (status == 'Drizzle'):
                 return ' {}, {}°C'.format(status, celsius)
         elif self.unit is "F":
