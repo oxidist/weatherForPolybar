@@ -3,25 +3,30 @@
 
 A simple python script that shows you the current weather in your polybar.
 
-# Installation 
-`config, launch.sh`  are scripts you need to put into polybar config folder
+## Installation 
+It is assumed you already have a working installation of polybar.
+The following is a snippet from the polybar config:
+```
+...
+modules-center = date weather
+...
+[module/weather]
+type = custom/script
 
-`cp launch.sh config ~/.config/polybar/`
+interval = 120
 
-then launch polybar
+format-padding = 2
 
-`polybar top`
+exec = ~/scripts/weather.py
+```
 
-Modify weather.py if you want to change the city
+## Troubleshooting
 
-
-# Troubleshooting
-
-#  Ubuntu
+###  Ubuntu
 
 Try:
 
-`apt policy polybar libstdc++6 libxcb-xrm0
+```apt policy polybar libstdc++6 libxcb-xrm0
 
 grep -r --include '*.list' '^deb' /etc/apt/sources.list*
 
@@ -29,5 +34,5 @@ sudo sed -i 's/^.*yakkety/# &/' /etc/apt/sources.list.d/getdeb.list
 
 sudo apt update
 
-sudo apt-get install polybar`
+sudo apt-get install polybar```
 
