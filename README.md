@@ -1,5 +1,5 @@
 # Weather For Polybar
-[![Build Status](https://travis-ci.org/OfficialOxide/weatherForPolybar.svg?branch=master)](https://travis-ci.org/OfficialOxide/weatherForPolybar)
+[![Build Status](https://travis-ci.org/OfficialOxide/weatherForPolybar.svg?branch=nospecialfont)](https://travis-ci.org/OfficialOxide/weatherForPolybar)
 
 A simple python script that shows you the current weather in your polybar.
 
@@ -34,5 +34,6 @@ sudo sed -i 's/^.*yakkety/# &/' /etc/apt/sources.list.d/getdeb.list
 
 sudo apt update
 
-sudo apt-get install polybar```
+sudo apt-get install polybar
+```
 
