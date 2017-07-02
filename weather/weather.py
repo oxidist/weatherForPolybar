@@ -48,7 +48,7 @@ class WeatherGetter(object):
                 return ' {}, {}°F'.format(status, fahrenheit)
 
 if __name__ == '__main__':
-    reporter = WeatherGetter('YOUR CITY, YOUR 2-LETTER COUNTRY CODE','YOUR UNIT HERE')
+    reporter = WeatherGetter('city, 2-letter country code','your unit here','api-key-here')
 
     weather = reporter.get_weather_of_city()
 
