@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #!/usr/bin/python
-import pyowm # pip install pyowm
+import pyowm
 
 class WeatherGetter(object):
     # How to enter the argument city:
