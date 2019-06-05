@@ -30,22 +30,23 @@ class WeatherGetter(object):
         status = weather.get_status() # for eg. sunny, clouds, etc.
         return status
     def output_the_weather(self, temp_in_kelvin, status):
+         psbl = {'Clouds':' ',
+                'Haze': ' ' ,
+                'Clear': ' ',
+                'Rain': ' ',
+                'Thunderstorm': ' ',
+                'Drizzle': ' ',
+                'Dust': ' '}
+
+        icon = psbl.get(status)
+
         if self.unit is 'C':
-            celsius = pyowm.utils.temputils.kelvin_to_celsius(temp_in_kelvin['temp'])
-            if status == 'Clouds':
-                return ' {}, {}°C'.format(status, celsius)
-            elif status == 'Clear':
-                return ' {}, {}°C'.format(status, celsius)
-            elif (status == 'Rain') or (status == 'Thunderstorm') or (status == 'Drizzle'):
-                return ' {}, {}°C'.format(status, celsius)
+            tmp = pyowm.utils.temputils.kelvin_to_celsius(temp_in_kelvin['temp'])
+
         elif self.unit is "F":
-            fahrenheit = pyowm.utils.temputils.kelvin_to_fahrenheit(temp_in_kelvin['temp'])
-            if status == 'Clouds':
-                return ' {}, {}°F'.format(status, fahrenheit)
-            elif status == 'Clear':
-                return ' {}, {}°F'.format(status, fahrenheit)
-            elif status == 'Rains' or status is 'Thunderstorm':
-                return ' {}, {}°F'.format(status, fahrenheit)
+            tmp = pyowm.utils.temputils.kelvin_to_fahrenheit(temp_in_kelvin['temp'])
+        
+        return "{}{}, {}°{}".format(icon, status, tmp, self.unit)
 
 if __name__ == '__main__':
     reporter = WeatherGetter('city, 2-letter country code','your unit here','api-key-here')
