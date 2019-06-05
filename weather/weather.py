@@ -30,7 +30,7 @@ class WeatherGetter(object):
         status = weather.get_status() # for eg. sunny, clouds, etc.
         return status
     def output_the_weather(self, temp_in_kelvin, status):
-         psbl = {'Clouds':' ',
+        psbl = {'Clouds':' ',
                 'Haze': ' ' ,
                 'Clear': ' ',
                 'Rain': ' ',
