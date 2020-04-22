@@ -36,7 +36,8 @@ class WeatherGetter(object):
                 'Rain': ' ',
                 'Thunderstorm': ' ',
                 'Drizzle': ' ',
-                'Dust': ' '}
+                'Dust': ' ',
+                'Mist': ' '}
 
         icon = psbl.get(status)
 
@@ -45,7 +46,7 @@ class WeatherGetter(object):
 
         elif self.unit is "F":
             tmp = pyowm.utils.temputils.kelvin_to_fahrenheit(temp_in_kelvin['temp'])
-        
+
         return "{}{}, {}°{}".format(icon, status, tmp, self.unit)
 
 if __name__ == '__main__':
